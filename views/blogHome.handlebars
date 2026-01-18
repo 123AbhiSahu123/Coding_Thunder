@@ -1,0 +1,41 @@
+
+<div class="container my-5">
+  <div class="row g-4">
+
+    {{#each blogs}}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        
+        <div class="card-body">
+          <h5 class="card-title text-primary">{{this.title}}</h5>
+          <p class="card-text text-muted">
+            {{this.content}}
+          </p>
+
+          <a href="/blogpost/{{this.slug}}" class="btn btn-outline-primary mt-3 w-100">
+            Read More →
+          </a>
+        </div>
+
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+
+
+
+
+
+
+{{!-- <div class="container mb-5">
+  {{#each blogs}}
+  <div class="blogs">
+    <br>
+    <center> <a href="/blogpost/{{this.slug}}">
+        <h5 style="margin: bottom;"> {{this.title}} </h5>
+      </a> </center>
+  </div>
+  {{/each}}
+</div> --}}
