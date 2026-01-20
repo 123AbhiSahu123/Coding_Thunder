@@ -17,21 +17,18 @@
             content:"This is content💖 of Java",
             trainer:"Abhi Shukla",
             slug:"Java_learn"
-
         },
         {
             title: "How to get started Django",
             content:"This is content🎶 of Django",
             trainer:"Rohini Singh",
             slug:"Django_learn"
-
         },
         {
             title: "How to get started PHP",
             content:"This is content😎 of PHP",
             trainer:"Shivani Srivastav",
             slug:"PHP_learn"
-
         },
         {
             title: "How to get started Gen AI",

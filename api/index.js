@@ -7,7 +7,7 @@ const accorddian = require('./data/accorddian');
 const { engine } = require('express-handlebars');
 const path = require('path');
 const mongoose = require('mongoose');
-// const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 const session = require("express-session");
 const app = express();
 
@@ -95,9 +95,9 @@ app.get('/login', (req, res) => {
 console.log("MONGO_URI =>", process.env.MONGO_URI);
 
 
-// app.listen(port, () => {
-//     console.log(`Blog app listening on port at http://localhost:${port}`)
-// });
+app.listen(port, () => {
+    console.log(`Blog app listening on port at http://localhost:${port}`)
+});
 
 module.exports = app;
 
