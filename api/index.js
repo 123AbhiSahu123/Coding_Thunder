@@ -1,12 +1,11 @@
-
 // ---------------- Existing Code ----------------
 const express = require('express');
+const path = require('path');
 require('dotenv').config({ path: '../.env' });
 const blogs = require('./data/blogs');
 const accorddian = require('./data/accorddian');
 const { engine } = require('express-handlebars');
-const path = require('path');
-const mongoose = require('mongoose');
+const connectDB = require("./config/db");
 const port = process.env.PORT || 3000;
 const session = require("express-session");
 const app = express();
@@ -32,22 +31,13 @@ app.use(
 // Static Files
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-
+connectDB();
 // Routes
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
 app.use("/", authRoutes);
 app.use("/admin", adminRoutes);
-
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log('✅ MongoDB Connected Successfully');
-    })
-    .catch((err) => {
-        console.error('❌ MongoDB Connection Error:', err.message);
-    });
 
 // ---------------- Add User Routes ----------------
 const userRoutes = require('./routes/userRoutes');
@@ -77,7 +67,6 @@ app.get('/blogpost/:slug', (req, res) => {
     })
 });
 
-
 app.get('/accorddian', (req, res) => {
     res.render('accorddianHome', {
         accorddian: accorddian
@@ -92,14 +81,46 @@ app.get('/login', (req, res) => {
     res.render('loginPage');
 });
 
-console.log("MONGO_URI =>", process.env.MONGO_URI);
-
 
 app.listen(port, () => {
     console.log(`Blog app listening on port at http://localhost:${port}`)
 });
 
 module.exports = app;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
