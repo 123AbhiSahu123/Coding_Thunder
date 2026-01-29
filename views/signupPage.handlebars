@@ -1,44 +1,83 @@
-<div class="container my-5">
-  <form id="SignUpForm">
-    <h2 class="text-center bg-primary text-white">SignUP</h2>
-    <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
-      <input type="name" class="form-control" id="name" aria-describedby="nameHelp">
+<div class="container d-flex justify-content-center align-items-center min-vh-100 mt-5 mb-5">
+  <div class="card shadow-lg border-0 rounded-4" style="width: 100%;">
+
+    <!-- Header -->
+    <div class="card-header bg-primary text-white text-center rounded-top-4 py-3">
+      <h4 class="mb-0">Create Account ✨</h4>
+      <small>Join us and start your journey</small>
     </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+    <!-- Body -->
+    <div class="card-body p-4">
+      <form id="SignUpForm">
+
+        <!-- Name -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Full Name</label>
+          <input type="text" class="form-control rounded-pill px-3" id="name" placeholder="Enter your name" required>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Email Address</label>
+          <input type="email" class="form-control rounded-pill px-3" id="email" placeholder="Enter your email" required>
+          <div class="form-text">We’ll never share your email.</div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Password</label>
+          <div class="input-group">
+            <input id="password" type="password" name="password" class="form-control rounded-start-pill px-3"
+              placeholder="Enter your password" required>
+
+            <span class="input-group-text bg-white rounded-end-pill" onclick="togglePassword()" style="cursor: pointer;"> 
+              👁️
+            </span>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Phone Number</label>
+          <input type="tel" class="form-control rounded-pill px-3" id="phone" placeholder="Enter your phone number"
+            required>
+        </div>
+
+        <!-- Course -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Course Name</label>
+          <input type="text" class="form-control rounded-pill px-3" id="course" placeholder="Enter course name"
+            required>
+        </div>
+
+        <!-- Submit -->
+        <div class="d-grid mt-4">
+          <button type="submit" class="btn btn-primary rounded-pill py-2">
+            Sign Up
+          </button>
+        </div>
+
+      </form>
     </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password">
+
+    <!-- Footer -->
+    <div class="card-footer text-center bg-light">
+      <small>
+        Already have an account?
+        <a href="/login" class="text-decoration-none fw-semibold mb-5">Log In</a>
+      </small>
     </div>
-    <div class="mb-3">
-      <label for="phone" class="form-label">Phone</label>
-      <input type="phone" class="form-control" id="phone" aria-describedby="phoneHelp">
-    </div>
-    <div class="mb-3">
-      <label class="form-label" for="course">Course Name</label>
-      <input type="course" class="form-control" id="course" aria-describedby="courseHelp">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+
+  </div>
 </div>
-
+<script>
+  function togglePassword() {
+    const password = document.getElementById("password");
+    password.type = password.type === "password" ? "text" : "password";
+  }
+</script>
 <script src="/js/signup.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
