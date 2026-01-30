@@ -1,45 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    {{!-- THIS TAG IMPORATNT FOR ADJUST CONTENT this content not be in responsive according devices--}}
+    {{!-- THIS TAG IMPORTANT FOR RESPONSIVE DESIGN --}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Coding</title>
+    <style>
+        @media (min-width: 992px) {
+            .hover-dropdown:hover>.dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+    <!-- Bootstrap 5.3.7 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-primary">
+
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Coding Thunder</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link {{#if isHome}}active{{/if}}" aria-current="page" href="/">Home</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="/blogs">Blogs</a>
+                        <a class="nav-link {{#if isBlogs}}active{{/if}}" href="/blogs">Blogs</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="/accorddian">Accordion</a>
+                        <a class="nav-link {{#if isAccordion}}active{{/if}}" href="/accorddian">Accordion</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="/signup">SignUp</a>
+                        <a class="nav-link {{#if isSignUp}}active{{/if}}" href="/signup">SignUp</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">LogIn</a>
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown hover-dropdown">
+                        <a class="nav-link dropdown-toggle {{#if isLogin}}active{{/if}}" href="/login">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/login">User Login</a></li>
+                            <li><a class="dropdown-item" href="/admin/login">Admin Login</a></li>
+                        </ul>
                     </li>
                 </ul>
+
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">
+                        Search
+                    </button>
                 </form>
             </div>
         </div>
@@ -47,12 +74,15 @@
 
     {{{body}}}
 
-<h3 class="bg-primary" style="text-align: center; padding: 5px; font-size: 20px">
-    Welcome to Coding Thunder Copyright of AbhiCoder ✌ Mern Expert 😎.
-</h3>
+    <h3 class="bg-primary text-center p-2 fs-5 text-white">
+        Welcome to Coding Thunder | Copyright of AbhiCoder ✌😎
+    </h3>
+
+    <!-- Bootstrap 5.3.7 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>
