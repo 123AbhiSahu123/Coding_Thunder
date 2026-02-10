@@ -52,12 +52,15 @@
 
                     <!-- Dropdown -->
                     <li class="nav-item dropdown hover-dropdown">
-                        <a class="nav-link dropdown-toggle {{#if isLogin}}active{{/if}}" href="/login">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="loginDropdown"
+                            data-bs-toggle="dropdown">
                             Login
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/login">User Login</a></li>
-                            <li><a class="dropdown-item" href="/admin/login">Admin Login</a></li>
+                            <li><a class="dropdown-item" href="/superadmin/login">Admin
+                                    Login</a></li>
+                            <li><a class="dropdown-item" href="/login">User
+                                    Login</a></li>                        
                         </ul>
                     </li>
                 </ul>
@@ -82,6 +85,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const path = window.location.pathname;
+            const loginDropdown = document.getElementById("loginDropdown");
+
+            if (path === "/login") {
+                loginDropdown.innerText = "User Login";
+                loginDropdown.classList.add("active");
+            }
+            else if (path === "/superadmin/login") {
+                loginDropdown.innerText = "Admin Login";
+                loginDropdown.classList.add("active");
+            }
+            else {
+                loginDropdown.innerText = "Login";
+            }
+        });
+    </script>
 
 </body>
 

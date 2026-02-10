@@ -6,47 +6,54 @@ const blogs = require('./data/blogs');
 const accorddian = require('./data/accorddian');
 const { engine } = require('express-handlebars');
 const connectDB = require("./config/db");
+const authRoutes = require("./routes/authRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const userRoutes = require('./routes/userRoutes');
+const superAdminRoutes = require("./routes/superAdminRoutes");
 const port = process.env.PORT || 3000;
 const session = require("express-session");
 const app = express();
 
 // Handlebars Setup
-app.use(express.json());
+// app.use(express.json());
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, "../views"));
 
 // Middleware
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 // Session
 app.use(
-  session({
-    secret: process.env.SESSION_SECRET || "secret123",
-    resave: false,
-    saveUninitialized: false,
-  })
+    session({
+        secret: process.env.SESSION_SECRET || "secret123",
+        resave: false,
+        saveUninitialized: false,
+    })
 );
 
 // Static Files
 app.use(express.static(path.join(__dirname, "..", "public")));
+app.use(express.json());
 
 connectDB();
+
 // Routes
-const authRoutes = require("./routes/authRoutes");
-const adminRoutes = require("./routes/adminRoutes");
+
 
 app.use("/", authRoutes);
 app.use("/admin", adminRoutes);
 
 // ---------------- Add User Routes ----------------
-const userRoutes = require('./routes/userRoutes');
+
 app.use('/api/users', userRoutes);
 
+//adding super admin routes
+app.use("/superadmin", superAdminRoutes);
 // ---------------- Existing Routes ----------------
 
 app.get('/', (req, res) => {
-    res.render('home',{ isHome: true });
+    res.render('home', { isHome: true });
 });
 
 app.get('/blogs', (req, res) => {
@@ -76,11 +83,11 @@ app.get('/accorddian', (req, res) => {
 });
 
 app.get('/signup', (req, res) => {
-    res.render('signupPage',{ isSignUp: true  });
+    res.render('signupPage', { isSignUp: true });
 });
 
 app.get('/login', (req, res) => {
-    res.render('loginPage',{ isLogin: true  });
+    res.render('login', { islogin: true });
 });
 
 
@@ -89,6 +96,7 @@ app.listen(port, () => {
 });
 
 module.exports = app;
+
 
 
 
