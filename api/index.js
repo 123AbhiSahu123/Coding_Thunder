@@ -10,7 +10,7 @@ const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require('./routes/userRoutes');
 const superAdminRoutes = require("./routes/superAdminRoutes");
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 const session = require("express-session");
 const app = express();
 
@@ -92,9 +92,9 @@ app.get('/login', (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Blog app listening on port at http://localhost:${port}`)
-});
+// app.listen(port, () => {
+//     console.log(`Blog app listening on port at http://localhost:${port}`)
+// });
 
 module.exports = app;
 
