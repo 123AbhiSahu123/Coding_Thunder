@@ -15,7 +15,6 @@ const session = require("express-session");
 const app = express();
 
 // Handlebars Setup
-// app.use(express.json());
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, "../views"));
@@ -23,12 +22,17 @@ app.set('views', path.join(__dirname, "../views"));
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 
+
+app.set("trust proxy", 1);
 // Session
 app.use(
     session({
         secret: process.env.SESSION_SECRET || "secret123",
         resave: false,
         saveUninitialized: false,
+        cookie: {
+      secure: process.env.NODE_ENV === "production" ? true : false // production me true only if HTTPS
+    }
     })
 );
 
@@ -39,13 +43,10 @@ app.use(express.json());
 connectDB();
 
 // Routes
-
-
 app.use("/", authRoutes);
 app.use("/admin", adminRoutes);
 
 // ---------------- Add User Routes ----------------
-
 app.use('/api/users', userRoutes);
 
 //adding super admin routes
