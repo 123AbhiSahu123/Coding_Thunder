@@ -10,7 +10,7 @@ const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require('./routes/userRoutes');
 const superAdminRoutes = require("./routes/superAdminRoutes");
-// const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 const session = require("express-session");
 const app = express();
 
@@ -20,7 +20,8 @@ app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, "../views"));
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 
 app.set("trust proxy", 1);
@@ -38,20 +39,15 @@ app.use(
 
 // Static Files
 app.use(express.static(path.join(__dirname, "..", "public")));
-app.use(express.json());
 
 connectDB();
 
 // Routes
 app.use("/", authRoutes);
 app.use("/admin", adminRoutes);
-
-// ---------------- Add User Routes ----------------
 app.use('/api/users', userRoutes);
-
-//adding super admin routes
 app.use("/superadmin", superAdminRoutes);
-// ---------------- Existing Routes ----------------
+
 
 app.get('/', (req, res) => {
     res.render('home', { isHome: true });
@@ -92,9 +88,9 @@ app.get('/login', (req, res) => {
 });
 
 
-// app.listen(port, () => {
-//     console.log(`Blog app listening on port at http://localhost:${port}`)
-// });
+app.listen(port, () => {
+    console.log(`Blog app listening on port at http://localhost:${port}`)
+});
 
 module.exports = app;
 
