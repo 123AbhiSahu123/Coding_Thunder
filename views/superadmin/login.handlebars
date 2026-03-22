@@ -1,0 +1,63 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100 mt-3 mb-3">
+    <div class="card shadow-lg border-0 rounded-4" style="width: 100%;">
+
+        <div class="card-header bg-primary text-white text-center rounded-top-4 py-3">
+            <h4 class="mb-0">Welcome Back 👋</h4>
+            <small>Admin_LogIn to your account</small>
+        </div>
+
+        <div class="card-body p-4">
+            <form id="loginForm" method="POST" action="/superadmin/login">
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Email Address</label>
+                    <input type="email" name="email" class="form-control rounded-pill px-3"
+                        placeholder="Enter your email" required>
+                    <div class="form-text">We’ll never share your email.</div>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Password</label>
+                    <div class="input-group">
+                        <input id="password" type="password" name="password"
+                            class="form-control rounded-start-pill px-3" placeholder="Enter your password" required>
+
+                        <span class="input-group-text bg-white rounded-end-pill" onclick="togglePassword()"
+                            style="cursor: pointer;">
+                            👁️
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Remember me -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="remember">
+                        <label class="form-check-label" for="remember">
+                            Remember me
+                        </label>
+                    </div>
+                    <a href="#" class="text-decoration-none small">Forgot password?</a>
+                </div>
+
+                <!-- Button -->
+                <div class="d-grid ">
+                    <button type="submit" class="btn btn-primary rounded-pill py-2">
+                        Admin_LogIn
+                    </button>
+                </div>
+                {{#if error}}
+                <p style="color:red">{{error}}</p>
+                {{/if}}
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function togglePassword() {
+        const password = document.getElementById("password");
+        password.type = password.type === "password" ? "text" : "password";
+    }
+</script>

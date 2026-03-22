@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coding Thunder</title>
+
+    {{!--
+    <script src="https://cdn.tailwindcss.com"></script> --}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @media (min-width: 992px) {
+            .hover-dropdown:hover>.dropdown-menu {
+                display: block;
+            }
+        }
+
+        /* Ensure the body takes full height so footer stays at bottom */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .hover-link:hover {
+            color: white !important;
+            transition: 0.3s;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+        }
+
+        nav {
+            background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand font-bold" href="/">Coding Thunder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link {{#if isHome}}active{{/if}}" aria-current="page" href="/">Home</a>
+                    </li>
+
+                    <li class="nav-item navbar-light">
+                        <a class="nav-link {{#if isBlogs}}active{{/if}}" href="/blogs">Blogs</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{#if isAccordion}}active{{/if}}" href="/accorddian">Accordion</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{#if isSignUp}}active{{/if}}" href="/signup">SignUp</a>
+                    </li>
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown hover-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="loginDropdown"
+                            data-bs-toggle="dropdown">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/superadmin/login">Admin
+                                    Login</a></li>
+                            <li><a class="dropdown-item" href="/login">User
+                                    Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <button
+                    class="navbar-nav bg-primary text-white rounded-xl border-none btn btn-outline-light btn-sm me-3">
+                    <li class="nav-item">
+                        <a class="nav-link {{#if isSignUp}}active{{/if}}" href="/#">Contact Us</a>
+                    </li>
+                </button>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <main>
+        {{{body}}}
+    </main>
+
+    <footer class="bg-primary text-white py-5 mt-auto">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Logo and Description -->
+                <div class="col-md-3">
+                    <a class="navbar-brand fw-bold text-white fs-4 d-block mb-3" href="/">Coding Thunder</a>
+                    <p class="text-white-50 small">
+                        Coding Thunder is a premier learning destination for aspiring developers. We provide
+                        high-quality tutorials, insightful blogs, and interactive resources to help you master the art
+                        of coding and build the future of the web.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none hover-link">Home</a></li>
+                        <li class="mb-2"><a href="/blogs"
+                                class="text-white-50 text-decoration-none hover-link">Blogs</a></li>
+                        <li class="mb-2"><a href="/accorddian"
+                                class="text-white-50 text-decoration-none hover-link">Accordion</a></li>
+                        <li class="mb-2"><a href="/login" class="text-white-50 text-decoration-none hover-link">User
+                                Login</a></li>
+                        <li class="mb-2"><a href="/superadmin/login"
+                                class="text-white-50 text-decoration-none hover-link">Admin Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Support</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/contact"
+                                class="text-white-50 text-decoration-none hover-link">Contact Us</a></li>
+                        <li class="mb-2"><a href="/signup"
+                                class="text-white-50 text-decoration-none hover-link">SignUp</a></li>
+                        <li class="mb-2"><a href="/faq" class="text-white-50 text-decoration-none hover-link">Privacy
+                                Policies</a>
+                        </li>
+                        <li class="mb-2"><a href="/faq"
+                                class="text-white-50 text-decoration-none hover-link">Disclaimer</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Follow Us</h5>
+                    <div class="d-flex gap-3 fs-4">
+                        <a target="_blank" href="https://www.facebook.com/shivamsahu1577" class="text-white"><i
+                                class="fab fa-facebook"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/sahuabhishek3810/" class="text-white"><i
+                                class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/abhishek-sahu-a5a3472a4/"
+                            class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <h3 class="bg-primary text-center p-2 fs-5 text-white">
+        Welcome to Coding Thunder | Copyright of AbhiCoder ✌😎
+    </h3>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const path = window.location.pathname;
+            const loginDropdown = document.getElementById("loginDropdown");
+            if (path === "/login") loginDropdown.innerText = "User Login";
+            else if (path === "/superadmin/login") loginDropdown.innerText = "Admin Login";
+        });
+    </script>
+</body>
+
+</html>

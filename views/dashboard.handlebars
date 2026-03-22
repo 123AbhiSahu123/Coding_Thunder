@@ -1,0 +1,51 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg border-0 rounded-4" style="max-width: 420px; width: 100%;">
+        <div class="card-body text-center p-4">
+            <h4 class="fw-bold mb-3">Welcome to Your Dashboard 👋</h4>
+            <!-- Profile Icon -->
+            <div class="mb-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User" class="rounded-circle"
+                    width="90">
+            </div>
+
+            <h4 class="fw-bold mb-3">{{user.name}}</h4>
+
+            <!-- User Info -->
+            <div class="text-start px-3">
+                <p class="mb-2"><strong>Name:</strong> {{user.name}}</p>
+                <p class="mb-2"><strong>Email:</strong> {{user.email}}</p>
+                <p class="mb-2"><strong>Phone:</strong> {{user.phone}}</p>
+                <p class="mb-2"><strong>Course:</strong> {{user.course}}</p>
+                <p class="mb-3"><strong>Password:</strong> {{user.password}}</p>
+            </div>
+            <!-- Buttons -->
+            <div class="d-grid gap-2 mt-4">
+                <a href="/logout" class="btn btn-primary rounded-pill">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
