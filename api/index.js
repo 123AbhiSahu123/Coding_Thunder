@@ -1,16 +1,17 @@
 // ---------------- Existing Code ----------------
 const express = require('express');
 const path = require('path');
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({ path: '../../.env' });
 const blogs = require('./data/blogs');
 const accorddian = require('./data/accorddian');
+const homeData = require('./data/home');
 const { engine } = require('express-handlebars');
 const connectDB = require("./config/db");
+const port = process.env.PORT || 3000;
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require('./routes/userRoutes');
 const superAdminRoutes = require("./routes/superAdminRoutes");
-const port = process.env.PORT || 3000;
 const session = require("express-session");
 const app = express();
 
@@ -49,8 +50,19 @@ app.use('/api/users', userRoutes);
 app.use("/superadmin", superAdminRoutes);
 
 
+// app.get('/', (req, res) => {
+//     res.render('home', { isHome: true });
+// });
+
+// app.get('/', (req, res) => {
+//   res.render('home', homeData);
+// });
+
 app.get('/', (req, res) => {
-    res.render('home', { isHome: true });
+    res.render('home', {
+        isHome: true,
+        ...homeData   // spread operator (best way 🔥)
+    });
 });
 
 
