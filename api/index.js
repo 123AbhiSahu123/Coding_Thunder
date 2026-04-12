@@ -12,6 +12,7 @@ const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require('./routes/userRoutes');
 const superAdminRoutes = require("./routes/superAdminRoutes");
+const courseRoutes = require("./routes/courseRoutes");
 const session = require("express-session");
 const app = express();
 
@@ -48,15 +49,8 @@ app.use("/", authRoutes);
 app.use("/admin", adminRoutes);
 app.use('/api/users', userRoutes);
 app.use("/superadmin", superAdminRoutes);
+app.use('/', courseRoutes);
 
-
-// app.get('/', (req, res) => {
-//     res.render('home', { isHome: true });
-// });
-
-// app.get('/', (req, res) => {
-//   res.render('home', homeData);
-// });
 
 app.get('/', (req, res) => {
     res.render('home', {
@@ -100,6 +94,7 @@ app.get('/signup', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login', { islogin: true });
 });
+
 
 app.listen(port, () => {
     console.log(`Blog app listening on port at http://localhost:${port}`)

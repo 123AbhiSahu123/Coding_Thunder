@@ -1,0 +1,60 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8">
+            <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+                <div class="bg-primary p-4 text-center">
+                    <h3 class="text-white mb-0 fw-bold">Course Summary</h3>
+                </div>
+                <div class="card-header bg-primary text-white text-center py-3 mt-2">
+                    <h4 class="mb-0">{{originalTitle}}</h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Course Price:</span>
+                            <span>₹{{basePrice}}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2 text-muted">
+                            <span>GST (18%):</span>
+                            <span>₹ [ {{basePrice}} + {{gst}} ]</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3 pt-3 border-top">
+                            <h5 class="fw-bold">Total Amount:</h5>
+                            <h5 class="fw-bold text-primary">₹{{total}}</h5>
+                        </div>
+                    </div>
+
+                    <div class="p-3 mb-4 rounded-3" style="background-color: #c2bef1; border: 1px dashed #4235F6;">
+                        <p class="small text-muted mb-2 fw-bold text-uppercase">Exclusive Password for Signup:</p>
+                        <div class="input-group">
+                            <input type="text" id="passInput" class="form-control fw-bold border-0 bg-transparent fs-5"
+                                value="{{randomPass}}" readonly>
+                            <button class="btn btn-dark btn-sm rounded-2 px-3" onclick="copyPassword()">Copy
+                                Code</button>
+                        </div>
+                        <p class="small text-danger mt-2 mb-0 italic">* Copy this code and use it as your password in
+                            the signup form.</p>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <a href="/signup?pass={{randomPass}}" class="btn btn-primary btn-lg fw-bold rounded-pill py-3">
+                            Proceed to Signup &rarr;
+                        </a>
+                        <a href="/" class="btn btn-link text-danger text-decoration-none small">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function copyPassword() {
+        const copyText = document.getElementById("passInput");
+        copyText.select();
+        navigator.clipboard.writeText(copyText.value);
+
+        // Toast notification ya simple alert
+        alert("Password copied to clipboard! Ab Signup form pe jaiye.");
+    }
+</script>

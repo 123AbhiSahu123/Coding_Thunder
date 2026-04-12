@@ -32,7 +32,7 @@
       <div class="section-title text-center">
         <h3 class="text-white fw-bold bg-primary py-3">{{title}}</h3>
         <p class="fs-3 fw-light mb-5">The core philosophy of Coding Thunder is "Learning by Doing."</p>
-      </div> 
+      </div>
     </div>
   </div>
 
@@ -51,213 +51,26 @@
 
 {{!-- section-3 --}}
 <div class="container-fluid">
-   <div class="section-title text-center">
-        <h3 class="text-white bg-primary py-3 fw-bold mb-5">We provided Courses</h3>
-      </div>
+  <div class="section-title text-center">
+    <h3 class="text-white bg-primary py-3 fw-bold mb-5">We provided Courses</h3>
+  </div>
   <div class="row g-4 mt-5 mb-5">
-
-    {{!-- first card --}}
+    {{#each courses}}
     <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
+      <div class="card mb-3 w-100">
         <div class="card-body">
-          <h4 class="card-title">Python Full Stack</h4>
-          <p class="card-text">To master Python as a developer, you don't just need to know the syntax; you need to understand the "Pythonic" way of solving problems.</p>
+          <h4 class="card-title">{{this.title}}</h4>
+          <p class="card-text">{{this.desc}}</p>
           <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
+            <span class="text-muted text-decoration-line-through">Real Price:- ₹{{this.oldPrice}}</span>
           </h6>
           <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
+            <a href="/checkout/{{this.id}}?price={{this.price}}" class="btn btn-primary">Buy Now</a>
+            <span class="fw-bold text-success">Offer Price:- ₹{{this.price}}</span>
           </div>
         </div>
       </div>
     </div>
-
-    {{!-- second card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">C/C++ Full Stack</h4>
-          <p class="card-text">To master C and C++, you have to move past syntax and understand how the languages interact directly with the CPU and Memory.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- third card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">Java Full Stack</h4>
-          <p class="card-text">Java Full Stack projects mastering Java means moving beyond basic syntax to understand how the Java Virtual Machine (JVM) actually handles your code.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    {{!-- fourth card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">C# and DotNet</h4>
-          <p class="card-text">The C# syntax and understand the Common Language Runtime (CLR) and the modern, high-performance shift that occurred with .NET Core.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- Fifth card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">Kotlin</h4>
-          <p class="card-text">Kotlin is the most natural "upgrade" for you. It was designed by JetBrains to be a more concise, safer version of Java that runs on the same Java Virtual Machine (JVM).</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- sixth card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">MERN Full Stack</h4>
-          <p class="card-text">The power of MERN isn't just that it uses one language (JavaScript) from top to bottom—it's how the four pieces handle data flow.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- seventh card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">MEAN Full Stack</h4>
-          <p class="card-text">MEAN is the "Enterprise Choice" because Angular provides a highly structured, opinionated framework that scales well for large teams.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- eighth card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">WordPress</h4>
-          <p class="card-text">WordPress is the world’s most popular Content Management System (CMS), powering over 43% of all websites. To master WordPress as a developer.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- nineth card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">PHP and Laravel</h4>
-          <p class="card-text">PHP as the raw materials (bricks and cement) and Laravel as the pre-built architectural framework that ensures your "house" is secure, scalable, and follows modern standards.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- tenth card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">Gen AI</h4>
-          <p class="card-text">Generative AI (GenAI) is a subset of Artificial Intelligence that doesn't just analyze existing data—it creates new content.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- Eleventh card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">Git And GitHub</h4>
-          <p class="card-text">Git as your time machine and GitHub as the cloud-based library where you store those time machines.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- twelveth card --}}
-    <div class="colm col-12 col-md-6 col-lg-4">
-      <div class="card mb-3 w-100" style="width: 18rem;">
-        <div class="card-body">
-          <h4 class="card-title">Digital Marketing</h4>
-          <p class="card-text">Digital Marketing is the process of using the internet, mobile devices, social media, search engines and reach consumers.</p>
-          <h6>
-            <span class="text-muted text-decoration-line-through">Real Price:- ₹14,999</span>
-          </h6>
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-primary">Buy Now</a>
-            <span class="fw-bold text-success">Offer Price:- ₹9,999</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    {{/each}}
   </div>
 </div>
