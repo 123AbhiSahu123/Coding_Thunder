@@ -13,6 +13,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require('./routes/userRoutes');
 const superAdminRoutes = require("./routes/superAdminRoutes");
 const courseRoutes = require("./routes/courseRoutes");
+const contactRoute = require("./routes/contact");
 const session = require("express-session");
 const app = express();
 
@@ -50,6 +51,7 @@ app.use("/admin", adminRoutes);
 app.use('/api/users', userRoutes);
 app.use("/superadmin", superAdminRoutes);
 app.use('/', courseRoutes);
+app.use("/contact", contactRoute);
 
 
 app.get('/', (req, res) => {
@@ -93,6 +95,9 @@ app.get('/login', (req, res) => {
     res.render('login', { islogin: true });
 });
 
+app.get('/contact', (req, res) => {
+    res.render('contact', { isContact: true });
+});
 
 
 const server = app.listen(port, () => {

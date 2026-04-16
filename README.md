@@ -95,7 +95,7 @@ Blog-Express/
 └── README.md
 
 
-#Express is a server side framework.
+# Express is a server side framework.
 
 Quick start:-
 
@@ -121,12 +121,12 @@ node_modules again install by this command npm i
 #Globally install:-
 npm install -g nodemon
 
-#Local dependency install in project:-
+# Local dependency install in project:-
 npm install --save-dev nodemon
  
-#if you go outer folder then use (../), (./), (.../) like that
+# if you go outer folder then use (../), (./), (.../) like that
 
-#Flow of signup form:-
+# Flow of signup form:-
 view/signupPage.handlebars --> js/signup.js --> models/User.js --> routes/userRoutes.js
 
 # Mongodb Atlas se data dashboard me  data  fetch karne ke liye:-
@@ -147,7 +147,7 @@ project/
 
 
 
-#login page which file importent:-
+# login page which file importent:-
 {
   email: "admin@gmail.com",
   password: "123456",
@@ -196,4 +196,4 @@ dev = dynamic 🔄	  ==> npm run dev → nodemon
 }
 
 
-#process kill in another terminal:- Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess | Stop-Process -Force
+# process kill in another terminal:- Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess | Stop-Process -Force
