@@ -20,7 +20,7 @@ module.exports = {
       id: "cpp01", 
       title: "C/C++ Full Stack", 
       oldPrice: "19,999", 
-      price: "15,999", 
+      price: "12,999", 
       desc: "To master C and C++, you have to move past syntax and understand how the languages interact directly with the CPU and Memory." 
     },
     { 
@@ -69,14 +69,14 @@ module.exports = {
       id: "php&l01", 
       title: "PHP & Laravel", 
       oldPrice: "17,999", 
-      price: "10,999", 
+      price: "11,999", 
       desc: "PHP as the raw materials (bricks and cement) and Laravel as the pre-built architectural framework that ensures your 'house' is secure, scalable, and follows modern standards." 
     },
     { 
       id: "gnai01", 
       title: "Gen AI", 
       oldPrice: "19,999", 
-      price: "15,999", 
+      price: "12,999", 
       desc: "Generative AI (GenAI) is a subset of Artificial Intelligence that doesn't just analyze existing data—it creates new content." 
     },
     { 
@@ -90,7 +90,7 @@ module.exports = {
       id: "d&m01", 
       title: "Digital Marketing", 
       oldPrice: "19,999", 
-      price: "15,999", 
+      price: "13,999", 
       desc: "Digital Marketing is the process of using the internet, mobile devices, social media, search engines and reach consumers." 
     }
   ]

@@ -1,7 +1,7 @@
 // ---------------- Existing Code ----------------
 const express = require('express');
 const path = require('path');
-require('dotenv').config({ path: '../../.env' });
+require('dotenv').config();
 const blogs = require('./data/blogs');
 const accorddian = require('./data/accorddian');
 const homeData = require('./data/home');
@@ -59,8 +59,6 @@ app.get('/', (req, res) => {
     });
 });
 
-
-
 app.get('/blogs', (req, res) => {
     res.render('blogHome', {
         blogs: blogs,
@@ -69,7 +67,7 @@ app.get('/blogs', (req, res) => {
 });
 
 app.get('/blogpost/:slug', (req, res) => {
-    myBlog = blogs.filter((e) => {
+   const myBlog = blogs.filter((e) => {
         return e.slug == req.params.slug
     })
     res.render('blogPage', {
@@ -96,8 +94,25 @@ app.get('/login', (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Blog app listening on port at http://localhost:${port}`)
+
+const server = app.listen(port, () => {
+    console.log(`Blog app listening on port at http://localhost:${port}`);
+});
+
+// Ye part sabse zaroori hai nodemon ke liye
+process.once('SIGUSR2', () => {
+    server.close(() => {
+        console.log("Cleanup: Closing port 3000 before restart...");
+        process.kill(process.pid, 'SIGUSR2');
+    });
+});
+
+
+// Emergency cleanup agar terminal band karein
+process.on('SIGINT', () => {
+    server.close(() => {
+        process.exit(0);
+    });
 });
 
 module.exports = app;

@@ -172,3 +172,28 @@ routes --> controllers --> loginPage.handlebars --> routes --> controllers --> m
     
 # app.use("/superadmin", ...)  in index.js
 # router.get("/dashboard", ...) hai -> URL hoga: localhost:3000/superadmin/dashboard
+
+# Terminal mein ye command likhein:  //run command karne ke liye 
+npx kill-port 3000
+Iske baad phir se npm run dev chalayein.
+
+
+# MONGO_URL (Uniform Resource Locator):-
+await mongoose.connect(process.env.MONGO_URL);   // normally mongodb use 
+
+# MONGO_URI (Uniform Resource Identifier):-
+await mongoose.connect(process.env.MONGO_URI);   // when we use mongodb atlas 
+
+
+# Difference between npm start and npm run dev
+start = stable 🚀 ==> npm start   → simple node  
+dev = dynamic 🔄	  ==> npm run dev → nodemon
+
+
+# "scripts": {
+  "start": "node api/index.js",
+  "dev": "nodemon api/index.js"
+}
+
+
+#process kill in another terminal:- Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess | Stop-Process -Force

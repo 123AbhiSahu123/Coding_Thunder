@@ -1,0 +1,17 @@
+{
+  "watch": ["api"],
+  "ignore": [
+    "node_modules", 
+    "public", 
+    "views", 
+    "*.log", 
+    ".env", 
+    "api/data",
+    "api/logs",
+    "*.tmp"
+  ],
+  "ext": "js,json",
+  "delay": "3000",
+  "legacyWatch": true,
+  "signal": "SIGTERM" 
+}

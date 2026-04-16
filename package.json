@@ -5,7 +5,7 @@
   "main": "api/index.js",
   "scripts": {
     "start": "node api/index.js",
-  "dev": "nodemon --watch api --watch .env -L api/index.js"
+    "dev": "nodemon api/index.js"
   },
   "author": "Abhi",
   "license": "ISC",
