@@ -16,7 +16,21 @@
             </h2>
             <div id="flush-collapse-{{@index}}" class="accordion-collapse collapse"
                 aria-labelledby="flush-heading-{{@index}}" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">{{this.content}}</div>
+                <p class="accordion-body">{{this.content}}</p>
+
+                {{#if this.syllabus}}
+                <h6 class="mt-3"><strong>Genuine Course Syllabus:</strong></h6>
+
+                <ul class="list-group list-group-flush border">
+                    {{#each this.syllabus}}
+                    <li class="list-group-item">
+                        <span class="badge bg-primary me-2">{{@key}}</span> {{this}}
+                    </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <p class="text-danger mt-2 small"><i>* Syllabus for this course will be updated soon.</i></p>
+                {{/if}}
             </div>
         </div>
         {{/each}}
