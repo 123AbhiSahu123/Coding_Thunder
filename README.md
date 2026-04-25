@@ -197,3 +197,13 @@ dev = dynamic 🔄	  ==> npm run dev → nodemon
 
 
 # process kill in another terminal:- Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess | Stop-Process -Force
+
+Searching:-
+route file koi bhi logic likhna nahi hai jo logic likha hai controller me likho 
+
+$regex: Iska matlab hai "Partial Match". Agar aapne sirf "Abhi" likha, toh ye "Abhishek" ko bhi dhoond lega.
+$options: "i": Iska matlab hai Case-Insensitive.
+
+when use get and post method :-
+Conclusion: Dikhane ke liye (Read) = GET
+Badalne ya Mitane ke liye (Write/Delete) = POST

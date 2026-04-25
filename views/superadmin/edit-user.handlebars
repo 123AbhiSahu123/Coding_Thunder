@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div class="card-header bg-primary text-white text-center rounded-top-4 py-3 mb-5">
+        <h2>Edit User Details</h2>
+    </div>
+
+    <form action="/superadmin/update-user/{{user._id}}" method="POST">
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Name:</label>
+            <input type="text" name="name" class="form-control" value="{{user.name}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Email:</label>
+            <input type="email" name="email" class="form-control" value="{{user.email}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Password:</label>
+            <input type="text" name="password" class="form-control" value="{{user.password}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Phone:</label>
+            <input type="text" name="phone" class="form-control" value="{{user.phone}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Course:</label>
+            <input type="text" name="course" class="form-control" value="{{user.course}}">
+        </div>
+        <div class="d-flex gap-3 mt-4 justify-content-center">
+            <button type="submit" class="btn btn-primary rounded-pill py-2">Update User</button>
+            <a href="/superadmin/dashboard" class="btn btn-secondary rounded-pill py-2">Cancel</a>
+        </div>
+    </form>
+</div>

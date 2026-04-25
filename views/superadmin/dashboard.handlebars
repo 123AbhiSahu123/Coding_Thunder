@@ -3,14 +3,14 @@
     <form class="d-flex mt-5" role="search" action="/superadmin/dashboard" method="GET">
         <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search"
             value="{{searchValue}}" />
-        <button class="btn btn-outline-light bg-primary" type="submit">
+        <button class="btn btn-outline-light bgb-primary" type="submit">
             Search
         </button>
     </form>
 
     <h2 class="my-4">Superadmin Dashboard - All Users</h2>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped  ">
         <thead class="table-dark">
             <tr>
                 <th>Name</th>
@@ -18,6 +18,7 @@
                 <th>Password</th>
                 <th>Phone</th>
                 <th>Course</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,13 @@
                 <td>{{this.password}}</td>
                 <td>{{this.phone}}</td>
                 <td>{{this.course}}</td>
+                <td class="d-flex justify-content-center gap-2 btn-md">
+                    <a href="/superadmin/edit-user/{{this._id}}" class="btn btn-primary text-white">Edit</a>
+                    <form action="/superadmin/delete-user/{{this._id}}" method="POST" style="display:inline">
+                        <button type="submit" class="btn btn-danger"
+                            onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </td>
             </tr>
             {{else}}
             <tr>
