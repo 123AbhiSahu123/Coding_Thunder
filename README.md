@@ -1,15 +1,15 @@
-#Express note
+#) Express note
 https://expressjs.com/
 
-# Run express code :- node index.js or nodemon index.js
+#) Run express code :- node index.js or nodemon index.js
 
-#Express handlebar notes
+#) Express handlebar notes
 https://www.npmjs.com/package/express-handlebars
 https://github.com/express-handlebars/express-handlebars/blob/master/README.md
 
 >npm install express-handlebars
 
-# navbar-expand-lg   lg screen par menu show and mobile view hamburger icon.
+#) navbar-expand-lg   lg screen par menu show and mobile view hamburger icon.
 
 data
   -> blog.js
@@ -21,7 +21,7 @@ package-lock.json
 package.json
 vercel.json
 
-#vercel.json:- deploy time
+#) vercel.json:- deploy time
 {
   "version": 2,
   "builds": [
@@ -95,7 +95,7 @@ Blog-Express/
 └── README.md
 
 
-# Express is a server side framework.
+#) Express is a server side framework.
 
 Quick start:-
 
@@ -118,18 +118,18 @@ node_modules again install by this command npm i
 #). "Thunder Client" is a extension. It is like that "Postman" So it is install in vs code.
 
 
-#Globally install:-
+#) Globally install:-
 npm install -g nodemon
 
-# Local dependency install in project:-
+#) Local dependency install in project:-
 npm install --save-dev nodemon
  
-# if you go outer folder then use (../), (./), (.../) like that
+#) if you go outer folder then use (../), (./), (.../) like that
 
-# Flow of signup form:-
+#) Flow of signup form:-
 view/signupPage.handlebars --> js/signup.js --> models/User.js --> routes/userRoutes.js
 
-# Mongodb Atlas se data dashboard me  data  fetch karne ke liye:-
+#) Mongodb Atlas se data dashboard me  data  fetch karne ke liye:-
 project/
 │
 ├── models/
@@ -147,7 +147,7 @@ project/
 
 
 
-# login page which file importent:-
+#) login page which file importent:-
 {
   email: "admin@gmail.com",
   password: "123456",
@@ -165,38 +165,38 @@ routes --> controllers --> loginPage.handlebars --> routes --> controllers --> m
 
 
 
-# app.get --> sirf index.js use
-# router.get --> routes inner folder used only
+#) app.get --> sirf index.js use
+#) router.get --> routes inner folder used only
 
 * as your choice where your write code
     
-# app.use("/superadmin", ...)  in index.js
-# router.get("/dashboard", ...) hai -> URL hoga: localhost:3000/superadmin/dashboard
+#) app.use("/superadmin", ...)  in index.js
+#) router.get("/dashboard", ...) hai -> URL hoga: localhost:3000/superadmin/dashboard
 
-# Terminal mein ye command likhein:  //run command karne ke liye 
+#) Terminal mein ye command likhein:  //run command karne ke liye 
 npx kill-port 3000
 Iske baad phir se npm run dev chalayein.
 
 
-# MONGO_URL (Uniform Resource Locator):-
+#) MONGO_URL (Uniform Resource Locator):-
 await mongoose.connect(process.env.MONGO_URL);   // normally mongodb use 
 
-# MONGO_URI (Uniform Resource Identifier):-
+#) MONGO_URI (Uniform Resource Identifier):-
 await mongoose.connect(process.env.MONGO_URI);   // when we use mongodb atlas 
 
 
-# Difference between npm start and npm run dev
+#) Difference between npm start and npm run dev
 start = stable 🚀 ==> npm start   → simple node  
 dev = dynamic 🔄	  ==> npm run dev → nodemon
 
 
-# "scripts": {
+#) "scripts": {
   "start": "node api/index.js",
   "dev": "nodemon api/index.js"
 }
 
 
-# process kill in another terminal:- Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess | Stop-Process -Force
+#) process kill in another terminal:- Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess | Stop-Process -Force
 
 Searching:-
 route file koi bhi logic likhna nahi hai jo logic likha hai controller me likho 
