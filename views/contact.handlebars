@@ -9,6 +9,19 @@
 
         <!-- Body -->
         <div class="card-body p-4">
+            {{#if success}}
+            <div class="alert alert-success">
+                Form submitted successfully 🎉
+            </div>
+            <script>
+                setTimeout(() => {
+                    const alertBox = document.getElementById("successAlert");
+                    if (alertBox) {
+                        alertBox.style.display = "none";
+                    }
+                }, 3000); // 3 seconds
+            </script>
+            {{/if}}
             <form action="/contact/send-contact" method="POST">
 
                 <!-- Name -->
@@ -64,12 +77,15 @@
     </div>
 </div>
 
-{{#if alertMessage}}
-<script>
-    // Ye tabhi chalega jab server se alertMessage aayega
-    alert("{{alertMessage}}");
 
-    // Alert ke baad agar aap URL ko clean karna chahte hain (Optional)
-    window.history.replaceState({}, document.title, "/contact");
-</script>
+{{!-- {{#if success}}
+<div class="alert alert-success mt-3">
+    Form submitted successfully 🎉
+</div>
 {{/if}}
+
+{{#if error}}
+<div class="alert alert-danger mt-3">
+    Something went wrong ❌
+</div>
+{{/if}} --}}

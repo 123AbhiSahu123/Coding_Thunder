@@ -1,52 +1,114 @@
-<div class="container">
+<style id="b8f43p">
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+        transition: 0.3s;
+    }
 
-    <form class="d-flex mt-5" role="search" action="/superadmin/dashboard" method="GET">
-        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search"
-            value="{{searchValue}}" />
-        <button class="btn btn-outline-light bgb-primary" type="submit">
-            Search
-        </button>
-    </form>
+    .card {
+        border-radius: 15px;
+    }
 
-    <h2 class="my-4">Superadmin Dashboard - All Users</h2>
+    .page-link {
+        transition: 0.3s;
+    }
 
-    <table class="table table-bordered table-striped  ">
-        <thead class="table-dark">
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Phone</th>
-                <th>Course</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each users}}
-            <tr>
-                <td>{{this.name}}</td>
-                <td>{{this.email}}</td>
-                <td>{{this.password}}</td>
-                <td>{{this.phone}}</td>
-                <td>{{this.course}}</td>
-                <td class="d-flex justify-content-center gap-2 btn-md">
-                    <a href="/superadmin/edit-user/{{this._id}}" class="btn btn-primary text-white">Edit</a>
-                    <form action="/superadmin/delete-user/{{this._id}}" method="POST" style="display:inline">
-                        <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure?')">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            {{else}}
-            <tr>
-                <td colspan="5" class="text-center">No users found in database.</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-    <div class="d-grid gap-2 mt-4 mb-4">
-        <a href="/superadmin/logout" class="btn btn-primary rounded-pill">
+    .page-link:hover {
+        background-color: #0d6efd;
+        color: white;
+    }
+</style>
+
+<div class="container mt-5">
+
+    <!-- 🔍 Search Bar -->
+    <div class="card shadow-sm p-3 mb-4">
+        <form class="d-flex" role="search" action="/superadmin/dashboard" method="GET">
+            <input class="form-control me-2 rounded-pill" type="search" name="search" placeholder="🔍 Search users..."
+                value="{{searchValue}}" />
+            <button class="btn btn-primary rounded-pill px-4" type="submit">
+                Search
+            </button>
+        </form>
+    </div>
+
+    <!-- 🧾 Heading -->
+    <h3 class="mb-4 text-center fw-bold">Superadmin Dashboard</h3>
+
+    <!-- 📊 Table -->
+    <div class="card shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Phone</th>
+                        <th>Course</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    {{#each users}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.password}}</td>
+                        <td>{{this.phone}}</td>
+                        <td>{{this.course}}</td>
+                        <td>
+                            <a href="/superadmin/edit-user/{{this._id}}"
+                                class="btn-md btn btn-primary text-white">Edit</a>
+                            <form action="/superadmin/delete-user/{{this._id}}" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-md btn-danger"
+                                    onclick="return confirm('Delete this user?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{else}}
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">
+                            No users found 😕
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 📄 Pagination -->
+    <div class="mt-4">
+        <ul class="pagination justify-content-center">
+
+            <!-- Previous -->
+            <li class="page-item {{#unless hasPrevPage}}disabled{{/unless}}">
+                <a class="page-link rounded-pill px-3" href="?page={{prevPage}}&search={{searchQuery}}">
+                    ⬅ Prev
+                </a>
+            </li>
+
+            <!-- Current Page -->
+            <li class="page-item active">
+                <span class="page-link rounded-pill px-4">
+                    {{currentPage}} / {{totalPages}}
+                </span>
+            </li>
+
+            <!-- Next -->
+            <li class="page-item {{#unless hasNextPage}}disabled{{/unless}}">
+                <a class="page-link rounded-pill px-3" href="?page={{nextPage}}&search={{searchQuery}}">
+                    Next ➡
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 🚪 Logout -->
+    <div class="text-center mt-4 mb-4">
+        <a href="/superadmin/logout" class="btn btn-outline-primary rounded-pill px-4">
             Logout
         </a>
     </div>
+
 </div>
