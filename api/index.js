@@ -99,6 +99,18 @@ app.get('/contact', (req, res) => {
     res.render('contact', { isContact: true });
 });
 
+app.get("/dashboard", (req, res) => {
+
+    // agar login nahi hai
+    if (!req.session.user) {
+        return res.redirect("/login");
+    }
+
+    res.render("dashboard", {
+        user: req.session.user
+    });
+});
+
 
 const server = app.listen(port, () => {
     console.log(`Blog app listening on port at http://localhost:${port}`);
