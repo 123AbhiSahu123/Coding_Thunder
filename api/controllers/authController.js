@@ -1,7 +1,7 @@
 const User = require("../models/User"); // agar User model hai
 
 
-// Login logic page
+// Login logic page  // we use index.js  add this path 
 // exports.loginPage = (req, res) => {
 //   res.render("login");  // ya res.send("Login Page")
 // };

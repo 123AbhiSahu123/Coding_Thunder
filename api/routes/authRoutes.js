@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {
-  // loginPage,
+  // loginPage,  // we use index.js  add this path 
   loginUser,
   logoutUser,
 } = require("../controllers/authController");
